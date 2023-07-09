@@ -1,8 +1,15 @@
 import React from "react";
 import "./App.css";
+import Register from "./Pages/Register";
+import Login from "./Pages/Login";
 
 const App = () => {
-  return <div className="bg-red-500 w-10 h-10"></div>;
+  return (
+    <div className="container">
+      {/* <Register /> */}
+      <Login />
+    </div>
+  );
 };
 
 export default App;
