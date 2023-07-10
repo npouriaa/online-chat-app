@@ -67,14 +67,14 @@ const LandingPage = () => {
         </div>
 
         <div className="w-full flex gap-4 flex-col items-center ">
-          <p className="text-sm text-gray-400">Already have an acccount ?</p>
-          <button className="w-4/5 transition-all text-white bg-[#703eff] hover:bg-[#552fbb] p-2 rounded-lg">
+          <p className="text-sm max-sm:text-xs text-gray-400">Already have an acccount ?</p>
+          <button className="w-4/5 max-sm:text-sm transition-all text-white bg-[#703eff] hover:bg-[#552fbb] p-2 rounded-lg">
             Login
           </button>
         </div>
         <div className="w-full flex gap-4 flex-col items-center ">
-          <p className="text-sm text-gray-400">Dont have an acccount ?</p>
-          <button className="w-4/5 transition-all text-white bg-[#703eff] hover:bg-[#552fbb] p-2 rounded-lg">
+          <p className="text-sm max-sm:text-xs text-gray-400">Dont have an acccount ?</p>
+          <button className="w-4/5 max-sm:text-sm transition-all text-white bg-[#703eff] hover:bg-[#552fbb] p-2 rounded-lg">
             Sign Up
           </button>
         </div>
