@@ -2,7 +2,7 @@ import React from "react";
 
 const Login = () => {
   return (
-    <div className="w-[500px] h-[450px] max-sm:w-[340px] max-sm:h-[550px] bg-white shadow-xl rounded-2xl flex flex-col gap-4 justify-center p-4">
+    <>
       <div className="w-full gap-2 flex flex-col p-3 items-center justify-center">
         <h1 className="text-2xl uppercase">Online Chat App</h1>
         <h5 className="text-lg text-gray-400 uppercase flex justify-center">
@@ -29,7 +29,7 @@ const Login = () => {
           Login
         </button>
       </form>
-    </div>
+    </>
   );
 };
 

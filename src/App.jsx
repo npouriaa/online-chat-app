@@ -1,13 +1,13 @@
 import React from "react";
 import "./App.css";
-import Register from "./Pages/Register";
-import Login from "./Pages/Login";
+import Auth from "./Pages/Auth";
+import LandingPage from "./Pages/LandingPage";
 
 const App = () => {
   return (
     <div className="container">
-      {/* <Register /> */}
-      <Login />
+      {/* <Auth/> */}
+      <LandingPage />
     </div>
   );
 };
