@@ -28,6 +28,17 @@ body {
   width: 100vw;
 }
 
+::-webkit-scrollbar {
+  height: 8px;
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar_bg);
+  border-radius: 5px;
+  border: 1px solid #a0a0a0;
+}
+
 .ant-form-item-row {
   display: block !important;
 }
@@ -38,31 +49,40 @@ body {
   align-items: center;
 }
 
-.ant-form-item-control-input-content{
+.ant-form-item-control-input-content {
   display: flex;
   justify-content: center;
 }
 
-.ant-input-affix-wrapper:focus{
-    border: #703eff !important;
+.ant-input-affix-wrapper:focus {
+  border: var(--bg-purple) !important;
 }
 
 :where(.css-dev-only-do-not-override-14wwjjs).ant-input-affix-wrapper:hover {
-    border-color: #703eff !important;
+  border-color: var(--bg-purple) !important;
 }
 
 :where(.css-dev-only-do-not-override-14wwjjs).ant-input-affix-wrapper-focused {
-  border-color: #703eff;
+  border-color: var(--bg-purple);
+}
+
+.ant-upload-wrapper {
+  width: 100%;
 }
 
 .ant-btn {
+  color: #fff;
   margin: 0 auto;
   height: 40px;
-  width: 80%;
-  background-color: #703eff !important;
+  width: 100%;
+  background-color: var(--bg-purple) !important;
 }
 
-/* 
-.sign-up-bg-section{
-    background-image: url(./Images/pattern-4.svg);
-} */
+.ant-btn.ant-btn-icon-only {
+  background-color: transparent !important;
+}
+
+.ant-btn:hover {
+  border-color: transparent !important;
+  color: #fff !important;
+}

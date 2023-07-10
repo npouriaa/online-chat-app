@@ -1,10 +1,18 @@
 import React from "react";
-import { Button, Form, Input } from "antd";
+import { InboxOutlined, UploadOutlined } from '@ant-design/icons';
+import { Button, Form, Input, Upload } from "antd";
 import { Link } from "react-router-dom";
 
 const Register = () => {
+  const normFile = (e) => {
+    console.log("Upload event:", e);
+    if (Array.isArray(e)) {
+      return e;
+    }
+    return e?.fileList;
+  };
   return (
-    <div className="relative w-[500px] h-[500px] max-sm:w-[340px] max-sm:h-[550px] bg-white shadow-xl rounded-2xl flex flex-col justify-center p-4">
+    <div className="relative w-[500px] max-sm:w-[400px] bg-white shadow-xl rounded-2xl flex flex-col justify-center p-4">
       <div className="w-full gap-2 flex flex-col p-3 items-center justify-center">
         <h1 className="text-2xl uppercase font-bold">Sign Up</h1>
         <h5 className="text-sm text-center text-gray-400  flex justify-center">
@@ -62,6 +70,17 @@ const Register = () => {
           >
             <Input.Password />
           </Form.Item>
+          <Form.Item
+            name="upload"
+            label="Upload"
+            valuePropName="fileList"
+            getValueFromEvent={normFile}
+          >
+            <Upload name="logo" action="" listType="picture">
+              <Button icon={<UploadOutlined />}>Click to upload</Button>
+            </Upload>
+          </Form.Item>
+
           <Form.Item>
             <Button type="primary" htmlType="submit">
               Sign up
