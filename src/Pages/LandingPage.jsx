@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const LandingPage = () => {
   return (
@@ -67,16 +68,27 @@ const LandingPage = () => {
         </div>
 
         <div className="w-full flex gap-4 flex-col items-center ">
-          <p className="text-sm max-sm:text-xs text-gray-400">Already have an acccount ?</p>
-          <button className="w-4/5 max-sm:text-sm transition-all text-white bg-[#703eff] hover:bg-[#552fbb] p-2 rounded-lg">
-            Login
-          </button>
+          <p className="text-sm max-sm:text-xs text-gray-400">
+            Already have an acccount ?
+          </p>
+          <Link className="w-full flex justify-center" to="/login">
+            <button className="w-4/5 max-sm:text-sm transition-all text-white bg-[#703eff] hover:bg-[#552fbb] p-2 rounded-lg">
+              Login
+            </button>
+          </Link>
         </div>
         <div className="w-full flex gap-4 flex-col items-center ">
-          <p className="text-sm max-sm:text-xs text-gray-400">Dont have an acccount ?</p>
-          <button className="w-4/5 max-sm:text-sm transition-all text-white bg-[#703eff] hover:bg-[#552fbb] p-2 rounded-lg">
-            Sign Up
-          </button>
+          <p className="text-sm max-sm:text-xs text-gray-400">
+            Dont have an acccount ?
+          </p>
+          <Link className="w-full flex justify-center" to="/register">
+            <button className="w-4/5 max-sm:text-sm transition-all text-white bg-[#703eff] hover:bg-[#552fbb] p-2 rounded-lg">
+              Sign Up
+            </button>
+          </Link>
+        </div>
+        <div className="text-xs uppercase w-full text-center mt-4">
+          made by <Link className="text-blue-400 text-sm" to="https://github.com/npouriaa">npouriaa</Link>
         </div>
       </div>
     </div>
