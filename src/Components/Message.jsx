@@ -10,7 +10,7 @@ const Message = ({condition}) => {
       </div>
     </div>
   ) : (
-    <div className="w-full flex jusztify-end">
+    <div className="w-full flex justify-end">
       <div className="p-2 max-sm:max-w-[300px] sm:w-[400px] bg-[#703eff] max-w-[max-content] text-white rounded-b-none rounded-l-3xl rounded-tr-3xl flex flex-col ">
         <p className="break-words p-2 max-sm:text-sm sm:text-sm md:text-base">
           aslkdskdlksldklkdlkdlskdlsk aslkdskdlksldklkdlkdlskdlskds;lgfgf
