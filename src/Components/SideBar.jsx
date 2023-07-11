@@ -4,7 +4,7 @@ import SearchBar from "./SearchBar";
 
 const SideBar = () => {
   return (
-    <div className="w-[350px] h-[700px] bg-[#f8f8f8] rounded-xl p-4 overflow-y-auto">
+    <div className="w-[300px] h-full bg-[#f8f8f8] rounded-l-2xl p-4 overflow-y-auto">
       <NavBar />
       <SearchBar />
       <ul className="w-full py-4 gap-3 flex flex-col">
