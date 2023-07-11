@@ -4,7 +4,7 @@ import Chat from "../Components/Chat";
 
 const Home = () => {
   return (
-    <div className="flex h-[700px] gap-1">
+    <div className="flex md:w-auto w-screen h-screen md:h-[700px] gap-1">
       <SideBar />
       <Chat />
     </div>

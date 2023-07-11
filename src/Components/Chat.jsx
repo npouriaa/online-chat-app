@@ -4,9 +4,26 @@ import Input from "./Input";
 
 const Chat = () => {
   return (
-    <div className="relative w-[900px] h-full rounded-r-2xl bg-[#f8f8f8] bg-[url('./Images/pattern-29.svg')]">
+    <div className="relative max-sm:w-full sm:w-full md:w-[900px] w-auto h-full rounded-r-2xl bg-[#f8f8f8] bg-[url('./Images/pattern-29.svg')]">
       <div className="w-full p-2 bg-white flex justify-between">
-        <div className="flex gap-2 p-2 items-center">
+        <div className="flex gap-3 p-2 items-center ">
+          <button className="max-sm:block md:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="#808081"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75"
+              />
+            </svg>
+          </button>
+
           <div className="relative">
             <img
               className="w-12 h-12 rounded-full"
@@ -67,8 +84,10 @@ const Chat = () => {
           </button>
         </div>
       </div>
-      <div className="p-4 h-[calc(100%_-_150px)] w-full overflow-y-auto">
-        <Message />
+      <div className="p-4 h-[calc(100%_-_150px)] w-full overflow-y-auto flex flex-col gap-2">
+        <Message condition={true}/>
+        <Message condition={false}/>
+        <Message condition={true}/>
       </div>
       <Input />
     </div>

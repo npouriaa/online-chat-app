@@ -4,7 +4,7 @@ import Routers from "./Components/Routers/Routers";
 
 const App = () => {
   return (
-    <div className="container">
+    <div className="my-container flex justify-center items-center w-screen">
       <Routers />
     </div>
   );
