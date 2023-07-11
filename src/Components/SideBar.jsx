@@ -2,13 +2,16 @@ import React from "react";
 import NavBar from "./NavBar";
 import SearchBar from "./SearchBar";
 
-const SideBar = () => {
+const SideBar = ({ showChatHandler }) => {
   return (
-    <div className="w-[300px] md:block hidden h-full bg-[#f8f8f8] rounded-l-2xl p-4 overflow-y-auto">
+    <div className="md:w-[260px] xl:w-[300px] max-sm:w-full sm:w-full h-full bg-[#f8f8f8] rounded-l-2xl p-4 overflow-y-auto">
       <NavBar />
       <SearchBar />
       <ul className="w-full py-4 gap-3 flex flex-col">
-        <li className="cursor-pointer w-full bg-white h-14 gap-2 flex items-center px-2 rounded-2xl">
+        <li
+          onClick={() => showChatHandler()}
+          className="cursor-pointer w-full bg-white h-14 gap-2 flex items-center px-2 rounded-2xl"
+        >
           <img
             className="rounded-full h-10 "
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1GOS8Mxd73Bu4zfCIWmou11x4QkGp2cFf7w&usqp=CAU"

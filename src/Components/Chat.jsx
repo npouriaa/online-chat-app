@@ -2,12 +2,15 @@ import React from "react";
 import Message from "./Message";
 import Input from "./Input";
 
-const Chat = () => {
+const Chat = ({ showChatHandler }) => {
   return (
-    <div className="relative max-sm:w-full sm:w-full md:w-[900px] w-auto h-full rounded-r-2xl bg-[#f8f8f8] bg-[url('./Images/pattern-29.svg')]">
+    <div className="relative max-sm:w-full sm:w-full md:w-3/4 lg:w-[900px]  h-full rounded-r-2xl bg-[#f8f8f8] bg-[url('./Images/pattern-29.svg')]">
       <div className="w-full p-2 bg-white flex justify-between">
         <div className="flex gap-3 p-2 items-center ">
-          <button className="max-sm:block md:hidden">
+          <button
+            onClick={() => showChatHandler()}
+            className="max-sm:block md:hidden"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -85,9 +88,9 @@ const Chat = () => {
         </div>
       </div>
       <div className="p-4 h-[calc(100%_-_150px)] w-full overflow-y-auto flex flex-col gap-2">
-        <Message condition={true}/>
-        <Message condition={false}/>
-        <Message condition={true}/>
+        <Message condition={true} />
+        <Message condition={false} />
+        <Message condition={true} />
       </div>
       <Input />
     </div>

@@ -5,7 +5,7 @@ const Input = () => {
     <div className="w-full flex p-2 bg-white h-[60px] rounded-br-2xl absolute bottom-0">
       <input
         type="text"
-        className="outline-none w-[calc(100%_-_120px)] h-full"
+        className="caret-[#703eff] outline-none w-[calc(100%_-_120px)] h-full"
         placeholder="Message"
       />
       <div className="h-full flex gap-4 items-center px-2">
