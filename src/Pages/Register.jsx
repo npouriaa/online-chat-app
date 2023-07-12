@@ -1,15 +1,28 @@
-import React from "react";
-import { InboxOutlined, UploadOutlined } from '@ant-design/icons';
+import React, { useState } from "react";
+import { UploadOutlined } from "@ant-design/icons";
 import { Button, Form, Input, Upload } from "antd";
 import { Link } from "react-router-dom";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase";
 
 const Register = () => {
-  const normFile = (e) => {
-    console.log("Upload event:", e);
-    if (Array.isArray(e)) {
-      return e;
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const onFinish = async (values) => {
+    const email = values.email;
+    const password = values.password;
+    setLoading(true);
+    try {
+      const response = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+    } catch (err) {
+      setError(true);
     }
-    return e?.fileList;
+    setLoading(false);
   };
   return (
     <div className="relative w-[500px] max-sm:w-[400px] bg-white shadow-xl rounded-2xl flex flex-col justify-center p-4">
@@ -20,9 +33,9 @@ const Register = () => {
         </h5>
       </div>
       <div className="flex justify-center">
-        <Form className="w-3/4 flex flex-col gap-4" onFinish={""}>
+        <Form className="w-3/4 flex flex-col gap-4" onFinish={onFinish}>
           <Form.Item
-            name="username"
+            name="email"
             label="Username"
             rules={[
               {
@@ -41,6 +54,10 @@ const Register = () => {
               {
                 required: true,
                 message: "Please input your password!",
+              },
+              {
+                len: 6,
+                message: "Password should be more than 6 chars!",
               },
             ]}
             hasFeedback
@@ -72,11 +89,12 @@ const Register = () => {
           </Form.Item>
           <Form.Item
             name="upload"
-            label="Upload"
-            valuePropName="fileList"
-            getValueFromEvent={normFile}
+            label="Profile Image"
+            rules={[
+              { required: true, message: "Please select a profile photo!" },
+            ]}
           >
-            <Upload name="logo" action="" listType="picture">
+            <Upload maxCount={1} name="profile" beforeUpload={() => false}>
               <Button icon={<UploadOutlined />}>Click to upload</Button>
             </Upload>
           </Form.Item>
