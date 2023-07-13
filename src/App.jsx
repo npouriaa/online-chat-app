@@ -1,9 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./App.css";
 import Routers from "./Components/Routers/Routers";
-import AuthContextProvider, {
-  AuthContext,
-} from "./Components/Context/AuthContext";
+import AuthContextProvider from "./Components/Context/AuthContext";
 
 const App = () => {
   return (

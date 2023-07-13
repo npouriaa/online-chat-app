@@ -1,8 +1,10 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import { auth } from "../firebase";
 import { signOut } from "firebase/auth";
+import { AuthContext } from "./Context/AuthContext";
 
 const NavBar = () => {
+  const { currentUser } = useContext(AuthContext);
   const subMenuRef = useRef();
   const showSubmenu = () => {
     subMenuRef.current.classList.toggle("hidden");
@@ -13,12 +15,12 @@ const NavBar = () => {
         <div className="profile-con w-12 h-12 rounded-full relative">
           <span className="online-badge w-3 h-3 rounded-full right-0 bottom-0 bg-green-400 absolute"></span>
           <img
-            className="object-contain w-full h-full rounded-full"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1GOS8Mxd73Bu4zfCIWmou11x4QkGp2cFf7w&usqp=CAU"
+            className="object-contain w-full h-full rounded-full bg-white"
+            src={currentUser.photoURL}
             alt="profile-image"
           />
         </div>
-        <p className="text-sm font-bold uppercase">Pouria</p>
+        <p className="text-sm font-bold uppercase">{currentUser.displayName}</p>
       </div>
       <div className="relative">
         <button

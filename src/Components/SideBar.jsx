@@ -7,10 +7,11 @@ const SideBar = ({ showChatHandler }) => {
     <div className="md:w-[260px] xl:w-[300px] max-sm:w-full sm:w-full h-full bg-[#f8f8f8] rounded-l-2xl p-4 overflow-y-auto">
       <NavBar />
       <SearchBar />
-      <ul className="w-full py-4 gap-3 flex flex-col">
+      <p className="font-bold mt-2 text-sm p-2">chats</p>
+      <ul className="w-full py-2 gap-3 flex flex-col">
         <li
           onClick={() => showChatHandler()}
-          className="cursor-pointer w-full bg-white h-14 gap-2 flex items-center px-2 rounded-2xl"
+          className="cursor-pointer w-full  bg-white h-14 gap-2 flex items-center px-2 rounded-2xl"
         >
           <img
             className="rounded-full h-10 "
