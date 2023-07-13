@@ -14,7 +14,7 @@ const NavBar = () => {
         </div>
         <p className="text-sm font-bold uppercase">Pouria</p>
       </div>
-      <button className="w-8 h-8 bg-white flex justify-center items-center rounded-full">
+      <button className="w-8 h-8 relative bg-white flex justify-center items-center rounded-full">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"

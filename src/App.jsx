@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./App.css";
 import Routers from "./Components/Routers/Routers";
+import AuthContextProvider, {
+  AuthContext,
+} from "./Components/Context/AuthContext";
 
 const App = () => {
   return (
-    <div className="my-container flex justify-center items-center w-screen relative">
-      <Routers />
-    </div>
+    <AuthContextProvider>
+      <div className="my-container flex justify-center items-center w-screen relative">
+        <Routers />
+      </div>
+    </AuthContextProvider>
   );
 };
 
