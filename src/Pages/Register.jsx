@@ -64,7 +64,6 @@ const Register = () => {
           });
         }
       );
-      console.log(response);
       openNotificationSuccess("top");
     } catch (err) {
       openNotificationError("top", err.message);

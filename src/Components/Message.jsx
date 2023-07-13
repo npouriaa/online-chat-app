@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef } from "react";
 import { AuthContext } from "./Context/AuthContext";
 import { ChatContext } from "./Context/ChatContext";
 
-const Message = ({ condition, message }) => {
+const Message = ({ message }) => {
   const { currentUser } = useContext(AuthContext);
   const ref = useRef();
   useEffect(() => {
@@ -32,13 +32,3 @@ const Message = ({ condition, message }) => {
 };
 
 export default Message;
-
-// <div className="w-full flex justify-end">
-// <div className="p-2 max-sm:max-w-[300px] sm:w-[400px] max-w-[max-content] bg-[#703eff] text-white rounded-b-none rounded-l-3xl rounded-tr-3xl flex flex-col ">
-//   <p className="break-words p-2 max-sm:text-sm sm:text-sm md:text-base">
-//     aslkdskdlksldklkdlkdlskdlsk aslkdskdlksldklkdlkdlskdlskds;lgfgf
-//     gfglflgf fgf;lg;glf
-//     gfklgfsllllllllllllllllldsll;sld;lsl;l;dsld;dl;sd;l;dsl;ld
-//   </p>
-// </div>
-// </div>

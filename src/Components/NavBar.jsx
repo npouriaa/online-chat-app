@@ -42,11 +42,11 @@ const NavBar = () => {
         </button>
         <ul
           ref={subMenuRef}
-          className="absolute hidden w-32 h-32 bg-white p-1 rounded-2xl top-8 right-0 border-[1px]"
+          className="absolute hidden w-32 h-10 bg-white p-1 rounded-2xl top-8 right-0 border-[1px]"
         >
           <li
             onClick={() => signOut(auth)}
-            className="cursor-pointer hover:bg-gray-100 transition-all p-2 text-sm w-full h-1/3 flex items-center gap-2"
+            className="cursor-pointer hover:bg-gray-100 transition-all p-2 text-sm w-full h-full flex items-center gap-2"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

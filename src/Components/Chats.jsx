@@ -13,7 +13,6 @@ const Chats = ({ showChatHandler }) => {
     const getChats = () => {
       const unsub = onSnapshot(doc(db, "userChats", currentUser.uid), (doc) => {
         setChats(doc.data());
-        console.log(chats);
       });
 
       return () => {
@@ -22,7 +21,6 @@ const Chats = ({ showChatHandler }) => {
     };
 
     currentUser?.uid && getChats();
-    console.log(Object.entries(chats));
   }, [currentUser.uid]);
 
   const handleSelect = (user) => {
