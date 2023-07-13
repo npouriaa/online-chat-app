@@ -1,25 +1,44 @@
-import React from "react";
+import React, { useContext, useEffect, useRef } from "react";
+import { AuthContext } from "./Context/AuthContext";
+import { ChatContext } from "./Context/ChatContext";
 
-const Message = ({condition}) => {
-  return condition ? (
-    <div className="w-full flex">
-      <div className="p-2 max-sm:max-w-[300px] sm:w-[400px]  max-w-[max-content]  bg-white rounded-b-none rounded-r-3xl rounded-tl-3xl">
+const Message = ({ condition, message }) => {
+  const { currentUser } = useContext(AuthContext);
+  const ref = useRef();
+  useEffect(() => {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
+  }, [message]);
+  return (
+    <div
+      ref={ref}
+      className={`w-full flex ${
+        message.senderId === currentUser.uid ? "justify-end" : ""
+      }`}
+    >
+      <div
+        className={`p-2 max-sm:max-w-[300px] sm:w-[400px] max-w-[max-content] ${
+          message.senderId === currentUser.uid
+            ? "bg-[#703eff] text-white rounded-b-none rounded-l-3xl rounded-tr-3xl"
+            : "bg-white rounded-b-none rounded-r-3xl rounded-tl-3xl"
+        }`}
+      >
         <p className="break-words p-2 max-sm:text-sm sm:text-sm md:text-base">
-         hi
+          {message.text}
         </p>
-      </div>
-    </div>
-  ) : (
-    <div className="w-full flex justify-end">
-      <div className="p-2 max-sm:max-w-[300px] sm:w-[400px] bg-[#703eff] max-w-[max-content] text-white rounded-b-none rounded-l-3xl rounded-tr-3xl flex flex-col ">
-        <p className="break-words p-2 max-sm:text-sm sm:text-sm md:text-base">
-          aslkdskdlksldklkdlkdlskdlsk aslkdskdlksldklkdlkdlskdlskds;lgfgf
-          gfglflgf fgf;lg;glf
-          gfklgfsllllllllllllllllldsll;sld;lsl;l;dsld;dl;sd;l;dsl;ld
-        </p>
+        {message.img && <img src={message.img} />}
       </div>
     </div>
   );
 };
 
 export default Message;
+
+// <div className="w-full flex justify-end">
+// <div className="p-2 max-sm:max-w-[300px] sm:w-[400px] max-w-[max-content] bg-[#703eff] text-white rounded-b-none rounded-l-3xl rounded-tr-3xl flex flex-col ">
+//   <p className="break-words p-2 max-sm:text-sm sm:text-sm md:text-base">
+//     aslkdskdlksldklkdlkdlskdlsk aslkdskdlksldklkdlkdlskdlskds;lgfgf
+//     gfglflgf fgf;lg;glf
+//     gfklgfsllllllllllllllllldsll;sld;lsl;l;dsld;dl;sd;l;dsl;ld
+//   </p>
+// </div>
+// </div>

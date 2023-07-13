@@ -13,8 +13,8 @@ const Home = () => {
     <div className="flex lg:w-auto w-screen h-screen lg:h-[700px] gap-1">
       {window.innerWidth >= 768 ? (
         <>
-          <SideBar />
-          <Chat />
+          <SideBar showChatHandler={showChatHandler} />
+          <Chat showChatHandler={showChatHandler} />
         </>
       ) : showChat ? (
         <Chat showChatHandler={showChatHandler} />

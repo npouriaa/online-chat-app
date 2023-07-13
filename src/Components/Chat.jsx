@@ -1,8 +1,11 @@
-import React from "react";
-import Message from "./Message";
+import React, { useContext } from "react";
 import Input from "./Input";
+import { ChatContext } from "./Context/ChatContext";
+import Messages from "./Messages";
 
 const Chat = ({ showChatHandler }) => {
+  const { data } = useContext(ChatContext);
+
   return (
     <div className="relative max-sm:w-full sm:w-full md:w-3/4 lg:w-[900px]  h-full rounded-r-2xl bg-[#f8f8f8] bg-[url('./Images/pattern-29.svg')]">
       <div className="w-full p-2 bg-white flex justify-between">
@@ -30,12 +33,12 @@ const Chat = ({ showChatHandler }) => {
           <div className="relative">
             <img
               className="w-12 h-12 rounded-full"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1GOS8Mxd73Bu4zfCIWmou11x4QkGp2cFf7w&usqp=CAU"
+              src={data.user?.photoURL}
               alt=""
             />
             <span className="online-badge w-3 h-3 rounded-full right-0 bottom-0 bg-green-400 absolute"></span>
           </div>
-          <p className="text-sm font-bold">Tyler</p>
+          <p className="text-sm font-bold">{data.user?.displayName}</p>
         </div>
         <div className="flex items-center gap-4 p-2">
           <button>
@@ -87,11 +90,7 @@ const Chat = ({ showChatHandler }) => {
           </button>
         </div>
       </div>
-      <div className="p-4 h-[calc(100%_-_150px)] w-full overflow-y-auto flex flex-col gap-2">
-        <Message condition={true} />
-        <Message condition={false} />
-        <Message condition={true} />
-      </div>
+        <Messages/>
       <Input />
     </div>
   );
