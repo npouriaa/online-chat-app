@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { UploadOutlined } from "@ant-design/icons";
 import { Button, Form, Input, Upload, notification } from "antd";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,10 +7,8 @@ import { auth, storage, db } from "../firebase";
 import Loader from "../Pages/Loader";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
-import { AuthContext } from "../Components/Context/AuthContext";
 
 const Register = () => {
-  const { currentUser } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   const [api, contextHolder] = notification.useNotification();
   const formRef = useRef();
@@ -35,7 +33,6 @@ const Register = () => {
   const setUser = async (email, password, displayName, file) => {
     setLoading(true);
     try {
-      setLoading(true);
       const response = await createUserWithEmailAndPassword(
         auth,
         email,
@@ -63,6 +60,7 @@ const Register = () => {
               photoURL: downloadURL,
             });
             await setDoc(doc(db, "userChats", response.user.uid), {});
+            navigate("/home");
           });
         }
       );
