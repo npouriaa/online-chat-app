@@ -7,7 +7,7 @@ const Chat = ({ showChatHandler }) => {
   const { data } = useContext(ChatContext);
   console.log(data);
   return (
-    <div className="relative max-sm:w-full sm:w-full md:w-3/4 lg:w-[900px]  h-full rounded-r-2xl bg-[#f8f8f8] bg-[url('./Images/pattern-29.svg')]">
+    <div className="relative max-sm:w-full sm:w-full md:w-3/4 lg:w-[calc(100%_-_20%)]  h-full rounded-r-2xl bg-[#f8f8f8] bg-[url('./Images/pattern-29.svg')]">
       {data?.chatID === "null" ? (
         <div className="w-full h-full flex justify-center items-center">
           <div className="w-96 h-52 flex justify-center items-center bg-white">
