@@ -84,9 +84,9 @@ const Input = () => {
         <input
           value={text}
           type="text"
-          className={`caret-[#703eff] outline-none w-[calc(100%_-_${
-            !img ? "85px" : "100px"
-          })] h-full`}
+          className={`caret-[#703eff] outline-none ${
+            img ? "w-[calc(100%_-_85px)]" : "w-[calc(100%_-_100px)]"
+          } h-full`}
           placeholder="Message"
           onChange={(e) => setText(e.target.value)}
         />
