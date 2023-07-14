@@ -84,10 +84,19 @@ const Input = () => {
         <input
           value={text}
           type="text"
-          className="caret-[#703eff] outline-none w-[calc(100%_-_85px)] h-full"
+          className={`caret-[#703eff] outline-none w-[calc(100%_-_${
+            !img ? "85px" : "100px"
+          })] h-full`}
           placeholder="Message"
           onChange={(e) => setText(e.target.value)}
         />
+        {img ? (
+          <p className="w-20 flex justify-center items-center text-sm">
+            + 1 Image
+          </p>
+        ) : (
+          <></>
+        )}
         <div className="h-full flex gap-4 items-center px-2">
           <input
             type="file"
