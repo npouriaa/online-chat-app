@@ -109,7 +109,7 @@ const SearchBar = () => {
       >
         {loading ? (
           <div className="w-10  h-full">
-            <span class="loaderSearch"></span>
+            <span class="second-loader"></span>
           </div>
         ) : (
           <button type="submit">
