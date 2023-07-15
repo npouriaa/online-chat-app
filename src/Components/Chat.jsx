@@ -10,7 +10,7 @@ const Chat = ({ showChatHandler }) => {
       {data?.chatID === "null" ? (
         <div className="w-full h-full flex justify-center items-center">
           <div className="w-96 h-52 flex justify-center items-center bg-white">
-            <h className="text-xl">Please select a chat !</h>
+            <h1 className="text-xl">Please select a chat !</h1>
           </div>
         </div>
       ) : (
