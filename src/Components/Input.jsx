@@ -143,7 +143,7 @@ const Input = () => {
               </svg>
             </button>
           ) : (
-            <span class="second-loader"></span>
+            <span className="second-loader"></span>
           )}
         </form>
       </div>

@@ -109,7 +109,7 @@ const SearchBar = () => {
       >
         {loading ? (
           <div className="w-10  h-full">
-            <span class="second-loader"></span>
+            <span className="second-loader"></span>
           </div>
         ) : (
           <button type="submit">
@@ -117,7 +117,7 @@ const SearchBar = () => {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="#a2a0a0"
-              class="w-6 h-6"
+              className="w-6 h-6"
             >
               <path
                 fillRule="evenodd"
