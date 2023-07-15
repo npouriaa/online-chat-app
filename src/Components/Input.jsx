@@ -84,14 +84,12 @@ const Input = () => {
         <input
           value={text}
           type="text"
-          className={`caret-[#703eff] outline-none ${
-            !img ? "w-[calc(100%_-_85px)]" : "w-[calc(100%_-_100px)]"
-          } h-full`}
+          className="caret-[#703eff] outline-none w-[calc(100%_-_85px)] h-full'"
           placeholder="Message"
           onChange={(e) => setText(e.target.value)}
         />
         {img ? (
-          <p className="w-20 flex justify-center items-center text-sm">
+          <p className="w-20 flex justify-center items-center max-sm:text-xs sm:text-xs md:text-sm">
             + 1 Image
           </p>
         ) : (
