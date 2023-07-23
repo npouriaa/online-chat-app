@@ -51,7 +51,11 @@ const SearchBar = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    getSerachedUser();
+    if (username !== "") {
+      getSerachedUser();
+    } else {
+      openNotificationError("top", "Search Input can't br empty !");
+    }
   };
 
   const handleSelect = async () => {

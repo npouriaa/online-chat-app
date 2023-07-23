@@ -29,55 +29,61 @@ const Input = () => {
 
   const handleSend = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    if (img) {
-      const storageRef = ref(storage, uuid());
-      const uploadTask = uploadBytesResumable(storageRef, img);
-      uploadTask.on(
-        (err) => {
-          openNotificationError("top", "Error on upload !");
-        },
-        () => {
-          getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-            await updateDoc(doc(db, "chats", data.chatID), {
-              messages: arrayUnion({
-                id: uuid(),
-                text,
-                senderId: currentUser.uid,
-                date: Timestamp.now(),
-                img: downloadURL,
-              }),
-            });
-          });
-        }
-      );
-    } else {
-      await updateDoc(doc(db, "chats", data.chatID), {
-        messages: arrayUnion({
-          id: uuid(),
+    if (text !== "") {
+      setLoading(true);
+      if (img) {
+        const storageRef = ref(storage, uuid());
+        const uploadTask = uploadBytesResumable(storageRef, img);
+        uploadTask.on(
+          (err) => {
+            openNotificationError("top", "Error on upload !");
+          },
+          () => {
+            getDownloadURL(uploadTask.snapshot.ref).then(
+              async (downloadURL) => {
+                await updateDoc(doc(db, "chats", data.chatID), {
+                  messages: arrayUnion({
+                    id: uuid(),
+                    text,
+                    senderId: currentUser.uid,
+                    date: Timestamp.now(),
+                    img: downloadURL,
+                  }),
+                });
+              }
+            );
+          }
+        );
+      } else {
+        await updateDoc(doc(db, "chats", data.chatID), {
+          messages: arrayUnion({
+            id: uuid(),
+            text,
+            senderId: currentUser.uid,
+            date: Timestamp.now(),
+          }),
+        });
+      }
+
+      await updateDoc(doc(db, "userChats", currentUser.uid), {
+        [data.chatID + ".lastMessage"]: {
           text,
-          senderId: currentUser.uid,
-          date: Timestamp.now(),
-        }),
+        },
+        [data.chatID + ".data"]: serverTimestamp(),
       });
+
+      await updateDoc(doc(db, "userChats", data.user.uid), {
+        [data.chatID + ".lastMessage"]: {
+          text,
+        },
+        [data.chatID + ".data"]: serverTimestamp(),
+      });
+      setLoading(false);
+      setText("");
+      setImg(null);
+    } else {
+      openNotificationError("top", "Message can't be empty !");
     }
-
-    await updateDoc(doc(db, "userChats", currentUser.uid), {
-      [data.chatID + ".lastMessage"]: {
-        text,
-      },
-      [data.chatID + ".data"]: serverTimestamp(),
-    });
-
-    await updateDoc(doc(db, "userChats", data.user.uid), {
-      [data.chatID + ".lastMessage"]: {
-        text,
-      },
-      [data.chatID + ".data"]: serverTimestamp(),
-    });
-    setLoading(false);
-    setText("");
-    setImg(null);
   };
   return (
     <>

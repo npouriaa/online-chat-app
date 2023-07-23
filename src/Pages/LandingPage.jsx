@@ -2,9 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const LandingPage = () => {
+  
   return (
     <div className="w-[500px] h-[650px] max-sm:w-[340px] max-sm:h-[550px] bg-white shadow-2xl rounded-2xl">
-      <div className="w-full flex justify-center h-1/2 bg-[url('./Images/pattern-4.svg')]">
+      <div className="w-full flex justify-center h-1/2 bg-[url('./assets/Images/pattern-4.svg')]">
         <div className="w-3/4 flex h-full relative">
           <svg
             xmlns="http://www.w3.org/2000/svg"

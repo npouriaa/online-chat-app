@@ -11,9 +11,11 @@ const Message = ({ message }) => {
     const time = `${date.getHours()}:${date.getMinutes()}`;
     return time;
   };
+
   useEffect(() => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   }, [message]);
+
   return (
     <div
       ref={ref}
