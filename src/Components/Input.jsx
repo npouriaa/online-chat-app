@@ -29,7 +29,7 @@ const Input = () => {
 
   const handleSend = async (e) => {
     e.preventDefault();
-    if (text !== "") {
+    if (text !== "" || img !== null) {
       setLoading(true);
       if (img) {
         const storageRef = ref(storage, uuid());
@@ -82,7 +82,7 @@ const Input = () => {
       setText("");
       setImg(null);
     } else {
-      openNotificationError("top", "Message can't be empty !");
+      openNotificationError("top", "Please send text or image !");
     }
   };
   return (
