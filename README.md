@@ -66,7 +66,7 @@ To set up a development environment, please follow these steps:
 
     Project will be running in the browser.
 
-    Open [http://localhost:3000](http://localhost:5173) to view it in your browser.
+    Open [http://localhost:5173](http://localhost:5173) to view it in your browser.
 
    ## Issues
 
