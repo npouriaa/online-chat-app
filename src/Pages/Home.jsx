@@ -8,7 +8,6 @@ const Home = () => {
   const showChatHandler = () => {
     setShowChat(!showChat);
   };
-
   return (
     <div className="flex w-screen h-screen gap-1">
       {window.innerWidth >= 768 ? (

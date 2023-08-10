@@ -1,8 +1,4 @@
-import {
-  createContext,
-  useContext,
-  useReducer,
-} from "react";
+import { createContext, useContext, useReducer } from "react";
 import { AuthContext } from "./AuthContext";
 
 export const ChatContext = createContext();
@@ -25,15 +21,19 @@ const ChatContextProvider = ({ children }) => {
               ? currentUser.uid + action.payload.uid
               : action.payload.uid + currentUser.uid,
         };
+      case "RESET_INITIAL_STATE":
+        return INITIAL_STATE;
       default:
         state;
     }
   };
 
   const [state, dispatch] = useReducer(chatReducer, INITIAL_STATE);
-
+  const resetInitialState = () => {
+    dispatch({ type: "RESET_INITIAL_STATE" });
+  };
   return (
-    <ChatContext.Provider value={{ data: state, dispatch }}>
+    <ChatContext.Provider value={{ data: state, dispatch, resetInitialState }}>
       {children}
     </ChatContext.Provider>
   );

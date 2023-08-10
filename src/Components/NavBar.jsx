@@ -2,9 +2,11 @@ import React, { useContext, useRef } from "react";
 import { auth } from "../firebase";
 import { signOut } from "firebase/auth";
 import { AuthContext } from "./Context/AuthContext";
+import { ChatContext } from "./Context/ChatContext";
 
 const NavBar = () => {
   const { currentUser } = useContext(AuthContext);
+  const { resetInitialState } = useContext(ChatContext);
   const subMenuRef = useRef();
   const showSubmenu = () => {
     subMenuRef.current.classList.toggle("hidden");
@@ -45,7 +47,10 @@ const NavBar = () => {
           className="absolute hidden w-32 h-10 bg-white p-1 rounded-2xl top-8 right-0 border-[1px]"
         >
           <li
-            onClick={() => signOut(auth)}
+            onClick={() => {
+              signOut(auth);
+              resetInitialState();
+            }}
             className="cursor-pointer hover:bg-gray-100 transition-all p-2 text-sm w-full h-full flex items-center gap-2"
           >
             <svg
