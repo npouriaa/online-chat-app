@@ -41,10 +41,10 @@ const Chats = ({ showChatHandler }) => {
                   showChatHandler();
                   handleSelect(chat[1].userInfo);
                 }}
-                className="cursor-pointer w-full  bg-white h-14 gap-2 flex items-center px-2 rounded-2xl"
+                className="cursor-pointer w-full bg-white h-14 gap-2 flex items-center px-2 rounded-2xl"
               >
                 <img
-                  className="rounded-full h-10 w-10 object-contain border-[1px]"
+                  className="rounded-full h-10 w-10 object-cover border-[1px]"
                   src={chat[1].userInfo.photoURL}
                   alt=""
                 />

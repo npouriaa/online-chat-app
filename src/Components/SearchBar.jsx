@@ -144,7 +144,7 @@ const SearchBar = () => {
           onClick={() => handleSelect()}
           className="cursor-pointer w-full bg-white h-14 gap-2 flex items-center px-2 rounded-2xl"
         >
-          <img className="rounded-full h-10 " src={user.photoURL} alt="" />
+          <img className="rounded-full h-10 object-cover w-10" src={user.photoURL} alt="" />
           <div className="h-full py-2 w-3/4 justify-around flex flex-col ">
             <p className="text-start text-xs font-bold truncate">
               {user.displayName}

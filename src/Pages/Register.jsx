@@ -17,7 +17,7 @@ const Register = () => {
   const openNotificationSuccess = (placement) => {
     api.success({
       message: "Success",
-      description: "Signed Up successfuly !",
+      description: "Signed Up successfuly. Please wait ...",
       placement,
     });
   };

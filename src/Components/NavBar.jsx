@@ -17,7 +17,7 @@ const NavBar = () => {
         <div className="profile-con w-12 h-12 rounded-full relative">
           <span className="online-badge w-3 h-3 rounded-full right-0 bottom-0 bg-green-400 absolute"></span>
           <img
-            className="object-contain w-full h-full rounded-full bg-white"
+            className="object-cover w-full h-full rounded-full bg-white"
             src={currentUser.photoURL}
             alt="profile-image"
           />
