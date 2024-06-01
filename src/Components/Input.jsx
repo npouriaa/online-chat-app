@@ -41,7 +41,7 @@ const Input = () => {
           () => {
             getDownloadURL(uploadTask.snapshot.ref).then(
               async (downloadURL) => {
-                await updateDoc(doc(db, "chats", data.chatID), {
+                await Doc(doc(db, "chats", data.chatID), {
                   messages: arrayUnion({
                     id: uuid(),
                     text,
