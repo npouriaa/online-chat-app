@@ -123,6 +123,11 @@ const Register = () => {
                   type: "email",
                   message: "Please enter a valid email address!",
                 },
+                {
+                  pattern: new RegExp(/^[a-zA-Z0-9.@]*$/),
+                  message:
+                    "Only letters (a-z), numbers (0-9), and periods (.) are allowed.",
+                },
               ]}
               hasFeedback
             >
